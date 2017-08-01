@@ -19,4 +19,4 @@ image2ppt converts your image sequence to PPT.
 ```
 
 #### macOS Application
-You can directly [download](/http://www.enescakir.com/wp-content/uploads/2017/08/image2ppt-1.zip) ready-to-use version, and start using.
+You can directly [download](http://www.enescakir.com/wp-content/uploads/2017/08/image2ppt-1.zip) ready-to-use version, and start using.

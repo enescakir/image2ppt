@@ -76,6 +76,8 @@ root = Tk()
 root.resizable(width=False, height=False)
 root.minsize(width=500, height=420)
 root.wm_title("image2ppt")
+root.attributes('-topmost', 1)
+root.after(1000, lambda: root.attributes('-topmost', 0))
 
 l0 = Label(root, text="image2ppt", font = "Helvetica 24 bold")
 l1 = Label(root, text="Presentation's name:", anchor=W)

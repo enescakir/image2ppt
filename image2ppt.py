@@ -35,7 +35,12 @@ def getOutputFolder():
     output_path = filedialog.askdirectory()
     l6.config(text=output_path)
 
+def log(text):
+    tb.insert('insert', text + "\n")
+    tb.see(Tkinter.END)
+
 def generate():
+    tb.delete('1.0', END)
     global ppt_name, resolution, slide_width, slide_height
     ppt_name = e1.get()
     resolution = int(e4.get())
@@ -51,7 +56,7 @@ def generate():
             if extension in SUPPORTED_FORMATS:
                 images.append(path)
 
-    print(str(len(images)) + " images found")
+    log(str(len(images)) + " images found")
 
     prs = Presentation()
     prs.slide_width = slide_width
@@ -61,12 +66,11 @@ def generate():
         blank_slide_layout = prs.slide_layouts[6]
         slide = prs.slides.add_slide(blank_slide_layout)
         pic = slide.shapes.add_picture(image, Inches(0) , Inches(0), slide_width,  slide_height)
-        print( "\"" + os.path.basename(image) + "\" is added")
+        log("\"" + os.path.basename(image) + "\" is added")
 
 
     prs.save(os.path.join(output_path, ppt_name + '.pptx'))
-    print(ppt_name + '.pptx is saved')
-
+    log(ppt_name + '.pptx is saved')
 
 root = Tk()
 root.resizable(width=False, height=False)
@@ -123,9 +127,5 @@ tb = tkst.ScrolledText(
     relief="groove"
 )
 tb.place(x = 50, y = 340, width=400, height=60)
-tb.insert('insert', "DENEME 1\n")
-tb.insert('insert', "DENEME 2\n")
-tb.insert('insert', "DENEME 3\n")
-tb.insert('insert', "DENEME 4\n")
 
 root.mainloop()

@@ -1,11 +1,11 @@
 #!/bin/sh
 
-if python3 -c "from pptx import Presentation" 2>/dev/null; then
+if python -c "from pptx import Presentation" 2>/dev/null; then
   echo "python-pptx is already installed"
 else
   echo "python-pptx is not installed"
   echo "python-pptx is installing now"
-  pip3 install python-pptx
+  pip install python-pptx
 fi
 
 chmod u+x image2ppt.py

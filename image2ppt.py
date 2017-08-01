@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3
+#!/usr/local/bin/python
 import sys, os
 from pptx import Presentation
 from pptx.util import Inches
@@ -15,12 +15,12 @@ SUPPORTED_FORMATS = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG' ]
 def pixelToEmu(pixel, resolution):
     return int(int(pixel) * 914400 / int(resolution))
 
-img_folder = input("Enter path of image folder [Current directory]: ").strip() or INPUT_PATH
-output_name = input("Enter name of presentation [" + PPT_NAME + "]: ").strip() or PPT_NAME
-output_path = input("Enter output path [Current directory]: ").strip() or OUTPUT_PATH
-width_pixel = input("Image width in pixels [" + str(SLIDE_WIDTH) + "]: ") or SLIDE_WIDTH
-height_pixel = input("Image height in pixels [" + str(SLIDE_HEIGHT) + "]: ") or SLIDE_HEIGHT
-img_resolution = input("Image resolution in ppi [" + str(RESOLUTION) + "]:") or RESOLUTION
+img_folder = raw_input("Enter path of image folder [Current directory]: ").strip() or INPUT_PATH
+output_name = raw_input("Enter name of presentation [" + PPT_NAME + "]: ").strip() or PPT_NAME
+output_path = raw_input("Enter output path [Current directory]: ").strip() or OUTPUT_PATH
+width_pixel = raw_input("Image width in pixels [" + str(SLIDE_WIDTH) + "]: ") or SLIDE_WIDTH
+height_pixel = raw_input("Image height in pixels [" + str(SLIDE_HEIGHT) + "]: ") or SLIDE_HEIGHT
+img_resolution = raw_input("Image resolution in ppi [" + str(RESOLUTION) + "]:") or RESOLUTION
 
 img_width = pixelToEmu(width_pixel, img_resolution)
 img_height = pixelToEmu(height_pixel, img_resolution)
